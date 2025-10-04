@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhsin Fasaludeen — Full Stack Developer</title>
+  <style>
+    :root{
+  --bg: #0b1220;
+  --bg-soft: #11182a;
+  --text: #e8edf6;
+  --muted: #a6b0c3;
+  --brand: #1fb6ff;
+  --brand-2: #22d3ee;
+  --card: #0f1627;
+  --border: #28324a;
+  --btn-text: #0b1220;
+  --maxw: 1120px;
+}
+
+/* Global */
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, #0b1220 50%, #0e1424 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout helpers */
+.container{
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.section{
+  padding: 4rem 0;
+}
+.section-title{
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  letter-spacing: .2px;
+}
+
+/* Topbar */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .875rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(11,18,32,.6);
+  backdrop-filter: blur(8px);
+}
+.brand{
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: .3px;
+}
+.topbar .links{
+  display: flex;
+  gap: .75rem;
+}
+.topbar .links a{
+  color: var(--text);
+  text-decoration: none;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  border: 1px solid transparent;
+}
+.topbar .links a:hover{
+  border-color: var(--border);
+  background: #0e162a;
+}
+
+/* Hero */
+.hero{
+  padding: clamp(3rem, 8vw, 7rem) 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero-inner{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.hero-media{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-photo{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(120px 120px at 30% 30%, var(--brand-2), var(--brand));
+  display: grid;
+  place-items: center;
+  color: #0a0f1b;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border: 3px solid #0d1a30;
+  box-shadow: 0 10px 30px rgba(31,182,255,.25);
+}
+.eyebrow{
+  margin: 0 0 .25rem 0;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--brand-2);
+  letter-spacing: .6px;
+}
+.headline{
+  margin: 0 0 1rem 0;
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+  line-height: 1.2;
+}
+.lede{
+  margin: 0 0 1.5rem 0;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.cta-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .75rem 1rem;
+  border-radius: .75rem;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .2px;
+  border: 1px solid transparent;
+  transition: transform .08s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-primary{
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 100%);
+  color: var(--btn-text);
+  box-shadow: 0 8px 20px rgba(31,182,255,.3);
+}
+.btn-primary:hover{
+  box-shadow: 0 10px 26px rgba(31,182,255,.4);
+}
+
+.btn-outline{
+  border-color: var(--border);
+  color: var(--text);
+  background: transparent;
+}
+.btn-outline:hover{
+  border-color: var(--brand);
+  background: rgba(34,211,238,.08);
+}
+
+.btn-ghost{
+  color: var(--text);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.btn-ghost:hover{
+  background: rgba(255,255,255,.08);
+}
+
+/* Cards */
+.card{
+  background: linear-gradient(180deg, var(--card) 0%, #0c1323 100%);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+.card p{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Contact list */
+.contact-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .5rem;
+}
+.contact-list a{
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.contact-list a:hover{
+  color: var(--brand-2);
+}
+
+/* Footer */
+.footer{
+  border-top: 1px solid var(--border);
+  padding: 2rem 1rem 3rem;
+  background: var(--bg-soft);
+}
+.footer-inner{
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-links{
+  display: flex;
+  gap: .75rem;
+}
+.footer-links a{
+  color: var(--muted);
+  text-decoration: none;
+  padding: .25rem .5rem;
+  border-radius: .5rem;
+}
+.footer-links a:hover{
+  color: var(--text);
+  background: #0e162a;
+}
+
+/* Responsive */
+/* @media (min-width: 800px){
+  .hero-inner{
+    grid-template-columns: 220px 1fr;
+    align-items: center;
+  }
+  .hero-media{ justify-content: flex-start; }
+} */
+/* Optional: give the hero full height feel */
+.hero{
+  padding: clamp(3rem, 8vw, 7rem) 1rem;
+  border-bottom: 1px solid var(--border);
+  min-height: calc(100vh - 64px);
+  display: grid;
+  align-items: center;
+}
+
+/* Widen the container just a bit on large screens */
+:root{
+  /* from 1120px -> allow up to 1280px, but stay fluid */
+  --maxw: clamp(1024px, 92vw, 1280px);
+}
+
+/* Desktop: real two-column grid */
+@media (min-width: 900px){
+  .hero-inner{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    align-items: center;
+    gap: 3rem;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .hero-media{ justify-content: flex-start; }
+}
+
+/* Image fit (works great when you swap different portraits) */
+.hero-photo{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="site-wrap">
+    <nav class="topbar">
+      <a class="brand" href="#">Muhsin F</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-outline" href="./resume.html">Resume</a>
+      </div>
+    </nav>
+
+    <<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-media">
+      <img src="./assets/IMG_20251004_211413.jpg" alt="Muhsin F" class="hero-photo">
+    </div> <!-- CLOSE hero-media -->
+
+    <div class="hero-content">
+      <h1 class="eyebrow">Hello, I'm Muhsin.</h1>
+      <h2 class="headline">
+        Full Stack Developer — Python, Django, React, JavaScript, Node.js
+      </h2>
+      <p class="lede">
+        Builds clean, scalable web apps across frontend and backend, focusing on performance, accessibility, and a great developer experience.
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#contact">Contact Me</a>
+        <a class="btn btn-ghost" href="#about">About Me</a>
+        <a class="btn btn-outline" href="resume.html">Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <main class="main">
+    <section id="about" class="section">
+      <div class="container card">
+        <h3 class="section-title">About Me</h3>
+        <p>
+          Passionate Full Stack Developer experienced with Python frameworks
+          (Django, Flask, FastAPI) and JavaScript-based stacks (Node.js, Express, MongoDB).
+          Focused on building clear, maintainable systems and smooth UI flows.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container card">
+        <h3 class="section-title">Contact</h3>
+        <ul class="contact-list">
+          <li>Phone: <a href="tel:+919633882283">+91 9633882283</a></li>
+          <li>Email: <a href="mailto:muhsinfasaludeen@gmail.com">muhsinfasaludeen@gmail.com</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/muhsin-f-091279294" rel="noopener">linkedin.com/in/muhsin-f-091279294</a></li>
+          <li>GitHub: <a href="https://github.com/Muhsin8git" rel="noopener">github.com/Muhsin8git</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 Muhsin Fasaludeen</p>
+      <nav class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.html">Resume</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
